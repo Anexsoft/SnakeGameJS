@@ -1,5 +1,45 @@
 class SnakeGame {
     constructor() {
+        this.initialize();
+    }
+
+    initialize() {
+        this.game = {
+            size: 20,
+            points: 100,
+            score: 0,
+            audios: {
+                lose: new Audio()
+            },
+            lockKey: false
+        };
+
+        this.snake = {
+            position: null,
+            body: [
+                {
+                    x: 280,
+                    y: 180,
+                }
+            ]
+        };
+
+        this.food = {
+            x: 120,
+            y: 140,
+            ico: new Image(),
+            audio: new Audio()
+        };
+
+        this.position = {
+            up: 0,
+            right: 1,
+            down: 2,
+            left: 3
+        };
+
+        this.gameover = false;
+
         // canvas
         this.canvas = document.getElementById('game');
         this.canvas.width = 600;
@@ -19,42 +59,6 @@ class SnakeGame {
         this.food.audio.src = 'assets/bite.mp3';
         this.game.audios.lose.src = 'assets/lose.mp3';
     }
-
-    game = {
-        size: 20,
-        points: 100,
-        score: 0,
-        audios: {
-            lose: new Audio()
-        },
-        lockKey: false
-    };
-
-    snake = {
-        position: null,
-        body: [
-            {
-                x: 280,
-                y: 180,
-            }
-        ]
-    };
-
-    food = {
-        x: 120,
-        y: 140,
-        ico: new Image(),
-        audio: new Audio()
-    };
-
-    position = {
-        up: 0,
-        right: 1,
-        down: 2,
-        left: 3
-    };
-
-    gameover = false;
 
     start() {
         let self = this;
