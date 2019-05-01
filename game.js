@@ -62,7 +62,7 @@ class SnakeGame {
         // enable controls
         controls();
 
-        // draw snake
+        // game
         let interval = setInterval(draw, 100);
 
         function draw() {
@@ -70,7 +70,7 @@ class SnakeGame {
             setTimeout(() => {
                 self.game.lockKey = false;
             }, 100);
-            
+
             // clear
             self.context.clearRect(0, 0, self.canvas.width, self.canvas.height);
 
@@ -93,7 +93,7 @@ class SnakeGame {
                 });
 
                 self.game.score++;
-                self.score.innerText = (self.game.score * self.game.points).toLocaleString();
+                self.score.innerText = (self.game.score * self.game.points).toLocaleString('es-pe');
                 self.food.audio.play();
             }
 
